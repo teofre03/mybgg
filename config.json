@@ -1,0 +1,18 @@
+{
+    "project": {
+        "name": "mybgg",
+        "title": ""
+    },
+    "boardgamegeek": {
+        "user_name": "teoxx93",
+        "extra_params": {
+            "own": 1
+        }
+    },
+    "algolia": {
+        "app_id": "FAF9JC10E9",
+        "api_key_search_only": "1464d0f848fc94ff6194ed7c945a7bd8",
+        "index_name": "bgg",
+        "hits_per_page": 10
+    }
+}
