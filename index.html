@@ -9,8 +9,15 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.7.4/dist/instantsearch-theme-algolia.min.css">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,700">
-  <script src="https://cdn.jsdelivr.net/npm/amplitudejs@4.0.0/dist/amplitude.js"></script>
+  <link rel="stylesheet"
+      href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+  <link rel="stylesheet"
+       href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.7.4"></script>
   <script src="amplitude.js"></script>
+  <script src="https://use.typekit.net/hkw8axg.js"></script>
 </head>
 <body>
   <article class="wrapper">
@@ -36,6 +43,62 @@
       <div class="facet" id="facet-mechanics"></div>
     </aside>
   </article>
+
+
+  <div id="DemoModal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"
+            aria-hidden="true">×</button>
+            <h4 class="modal-title">Music player</h4>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="large-10 medium-10 small-12 large-centered medium-centered columns">
+                <div id="single-song-player">
+                  <img amplitude-song-info="cover_art_url" amplitude-main-song-info="true" src="/img/open-source/amplitudejs/album-art/we-are-to-answer.jpg"> 
+                  <div class="bottom-container">
+                    <progress amplitude-main-song-played-progress="true" id="song-played-progress" class="amplitude-song-played-progress" value="0"></progress> 
+                    <div class="time-container">
+                      <span class="current-time">
+                        <span amplitude-main-current-minutes="true" class="amplitude-current-minutes">00</span>:<span amplitude-main-current-seconds="true" class="amplitude-current-seconds">00</span>
+                      </span> 
+                      <span class="duration">
+                        <span amplitude-main-duration-minutes="true" class="amplitude-duration-minutes">03</span>:<span amplitude-main-duration-seconds="true" class="amplitude-duration-seconds">30
+                        </span>
+                      </span>
+                    </div> 
+                    <div class="control-container">
+                      <div amplitude-main-play-pause="true" id="play-pause" class="amplitude-play-pause amplitude-paused"></div> 
+                      <div class="meta-container">
+                        <span amplitude-song-info="name" amplitude-main-song-info="true" class="song-name">Risin' High (feat Raashan Ahmad)</span> 
+                        <span amplitude-song-info="artist" amplitude-main-song-info="true">Ancient Astronauts</span>
+                      </div>
+                    </div>
+                  </div>
+                </div> 
+                <div class="row">
+                  <div class="large-12 medium-12 small-12 columns">
+                    <p class="example-description">
+                    The most basic of AmplitudeJS examples. A single player that allows the user to fully customize the design of a player with controls.
+                    </p>
+                  </div>
+                </div> 
+                <div class="row">
+                  <div class="large-10 medium-12 small-12 large-centered medium-centered columns">
+                    <a href="https://github.com/521dimensions/amplitudejs/tree/master/examples/single-song" target="_blank" class="download-on-github">View Source on Github</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Chiudi</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
   <script type="text/html" id="hits-template">
     <details class="game-wrapper">
@@ -82,24 +145,38 @@
 
   <script type="text/javascript">
     function playMusic(id){
+      $('#DemoModal').modal('show');
       Amplitude.init({
-        "songs": [
-          {
-            "name": "Song Name 1",
-            "artist": "Artist Name",
-            "album": "Album Name",
-            "url": "https://sample-videos.com/audio/mp3/crowd-cheering.mp3",
-            "cover_art_url": "/cover/art/url.jpg"
-          },
-          {
-            "name": "Song Name 2",
-            "artist": "Artist Name",
-            "album": "Album Name",
-            "url": "/song/url.mp3",
-            "cover_art_url": "https://sample-videos.com/audio/mp3/wave.mp3"
-          }
-        ]
-      });
+      "bindings": {
+        37: 'prev',
+        39: 'next',
+        32: 'play_pause'
+      },
+      "songs": [
+        {
+          "name": "Titolo canzone",
+          "artist": "Ancient Astronauts",
+          "album": "We Are to Answer",
+          "url": "https://sample-videos.com/audio/mp3/crowd-cheering.mp3",
+          "cover_art_url": "/img/open-source/amplitudejs/album-art/we-are-to-answer.jpg"
+        }
+      ]
+    });
+
+    window.onkeydown = function(e) {
+        return !(e.keyCode == 32);
+    };
+
+    /*
+      Handles a click on the song played progress bar.
+    */
+    document.getElementById('song-played-progress').addEventListener('click', function( e ){
+      var offset = this.getBoundingClientRect();
+      var x = e.pageX - offset.left;
+
+      Amplitude.setSongPlayedPercentage( ( parseFloat( x ) / parseFloat( this.offsetWidth) ) * 100 );
+    });
+
     }
   </script>
 
