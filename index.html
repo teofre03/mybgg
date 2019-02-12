@@ -9,7 +9,8 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.7.4/dist/instantsearch-theme-algolia.min.css">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,700">
-  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.7.4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/amplitudejs@4.0.0/dist/amplitude.js"></script>
+  <script src="amplitude.js"></script>
 </head>
 <body>
   <article class="wrapper">
@@ -59,6 +60,10 @@
               <th>BGG Link</th>
               <td><a href="https://boardgamegeek.com/boardgame/{{{ id }}}">{{ name }}</a></td>
           </tr>
+          <tr>
+              <th>Musica</th>
+              <td><div onclick="playMusic({{{ id }}})">Play</div></td>
+          </tr>
           {{# has_expansions }}
           <tr>
             <th>Espansioni</th>
@@ -73,6 +78,29 @@
         <p class="description">{{{ _highlightResult.description.value }}}</p>
       </div>
     </details>
+  </script>
+
+  <script type="text/javascript">
+    function playMusic(id){
+      Amplitude.init({
+        "songs": [
+          {
+            "name": "Song Name 1",
+            "artist": "Artist Name",
+            "album": "Album Name",
+            "url": "https://sample-videos.com/audio/mp3/crowd-cheering.mp3",
+            "cover_art_url": "/cover/art/url.jpg"
+          },
+          {
+            "name": "Song Name 2",
+            "artist": "Artist Name",
+            "album": "Album Name",
+            "url": "/song/url.mp3",
+            "cover_art_url": "https://sample-videos.com/audio/mp3/wave.mp3"
+          }
+        ]
+      });
+    }
   </script>
 
   <script src="app.js"></script>
