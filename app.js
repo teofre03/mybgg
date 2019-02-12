@@ -60,7 +60,7 @@ function init(SETTINGS) {
   search.addWidget(
     instantsearch.widgets.searchBox({
       container: '#search-box',
-      placeholder: 'Search for games'
+      placeholder: 'Cerca un gioco'
     })
   );
 
@@ -68,7 +68,7 @@ function init(SETTINGS) {
     instantsearch.widgets.clearAll({
       container: '#clear-all',
       templates: {
-        link: 'Clear all'
+        link: 'Cancella filtri'
       },
       clearsQuery: true
     })
@@ -82,7 +82,7 @@ function init(SETTINGS) {
       operator: 'and',
       showMore: true,
       templates: {
-        header: 'Categories'
+        header: 'Categorie'
       }
     })
   );
@@ -95,7 +95,7 @@ function init(SETTINGS) {
       operator: 'and',
       showMore: true,
       templates: {
-        header: 'Mechanics'
+        header: 'Meccaniche'
       }
     })
   );
@@ -109,17 +109,17 @@ function init(SETTINGS) {
       showMore: true,
       sortBy: function(a, b){ return parseInt(a.name) - parseInt(b.name); },
       templates: {
-        header: 'Number of players'
+        header: 'Numero di giocatori'
       }
     })
   );
 
   var WEIGHT_LABELS = [
-    "Light",
-    "Light Medium",
-    "Medium",
-    "Medium Heavy",
-    "Heavy"
+    "Facile",
+    "Mediamente facile",
+    "Medio",
+    "Medio difficile",
+    "Difficile"
   ];
   search.addWidget(
     instantsearch.widgets.refinementList({
@@ -129,7 +129,7 @@ function init(SETTINGS) {
       operator: 'or',
       sortBy: function(a, b){ return WEIGHT_LABELS.indexOf(a.name) - WEIGHT_LABELS.indexOf(b.name); },
       templates: {
-        header: 'Complexity'
+        header: 'Complessità'
       }
     })
   );
@@ -150,7 +150,7 @@ function init(SETTINGS) {
       operator: 'or',
       sortBy: function(a, b){ return PLAYING_TIME_ORDER.indexOf(a.name) - PLAYING_TIME_ORDER.indexOf(b.name); },
       templates: {
-        header: 'Playing time'
+        header: 'Tempo di gioco'
       }
     })
   );
@@ -170,7 +170,7 @@ function init(SETTINGS) {
             type_to_string = {
               'best': ' <span class="soft">(best)</span>',
               'recommended': '',
-              'expansion': ' <span class="soft">(with exp)</span>'
+              'expansion': ' <span class="soft">(Con esp.)</span>'
             };
             players.push(num + type_to_string[type]);
 
@@ -190,7 +190,7 @@ function init(SETTINGS) {
         },
       },
       templates: {
-        empty: 'No results',
+        empty: 'Nessun risultato',
         item: document.getElementById('hits-template').innerHTML
       },
     })
@@ -215,7 +215,7 @@ function init(SETTINGS) {
   function set_bgg_name() {
     var title = SETTINGS.project.title;
     if (!title) {
-      title = "All " + SETTINGS.boardgamegeek.user_name + "'s boardgames";
+      title = "I giochi da tavolo di Teo";
     }
 
     var title_tag = document.getElementsByTagName("title")[0];
