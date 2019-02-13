@@ -197,7 +197,7 @@
           </tr>
           <tr>
               <th>Musica</th>
-              <td><div onclick="playMusic({{{ id }}}, '{{{ image }}}')">Play</div></td>
+              <td><div style="cursor: pointer;" onclick="playMusic({{{ id }}}, '{{{ image }}}')">Play</div></td>
           </tr>
           {{# has_expansions }}
           <tr>
@@ -262,6 +262,41 @@
         case 230498:
           // DECKSCAPE FATE OF LONDON
           return "music/Escape Room Timer Music.mp3";
+        case 258451:
+          // DECKSCAPE ELDORADO
+          return "music/Suspance.mp3";
+        case 102548:
+          // DUNGEON FIGHTER
+          return "music/Fantasy Tavern.mp3";  
+        case 203417:
+          // EXIT SECRET LAB
+          return "music/Laboratory.mp3"; 
+        case 215841:
+          // EXIT FORGOTTEN ISLAND
+          return "music/Suspance.mp3"; 
+        case 215840:
+          // EXIT FORBIDDEN CASTLE
+          return "music/Horror.mp3";     
+        case 230408:
+          // MONOPOLY GAMER
+          return "music/Super Mario.mp3"; 
+        case 176606:
+          // RATTLE BATTLE GRAB THE LOOT
+          var num = Math.floor((Math.random() * 100) + 1);
+          if (num > 50){
+            return "music/Pirate Caribbean.mp3"; 
+          } else {
+            return "music/Pirate Music Epic Short.mp3"; 
+          }
+        case 127024:
+          // ROOM 25
+          return "music/Spy.mp3"; 
+        case 188834:
+          // SECRET VOLDEMORT
+          return "music/Harry Potter.mp3";    
+        case 2511:
+          // SHERLOCK HOLMES CONSULTING DETECTIVE
+          return "music/Sherlock Holmes.mp3";     
         default:
           return null;
       }
