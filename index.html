@@ -93,6 +93,16 @@
         font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
         margin-top: 20px;
     }
+    .cover_art_url{
+        background-position: top;
+        background-size: cover;
+        /* filter: blur(5px); */
+        /* -webkit-filter: blur(5px); */
+        height: 100%;
+        /* position: absolute; */
+        width: 100%;
+        z-index: -1;
+    }
   </style>
 </head>
 <body>
@@ -132,7 +142,7 @@
           <div class="modal-body">
             <div class="row">
               <div id="single-song-player">
-                <img data-amplitude-song-info="cover_art_url"/>
+                <img class="cover_art_url" data-amplitude-song-info="cover_art_url"/>
                 <div class="bottom-container">
                   <progress class="amplitude-song-played-progress" id="song-played-progress"></progress>
 
@@ -229,6 +239,7 @@
             }
           ]
         });
+        Amplitude.bindNewElements();
       }
     }
 
