@@ -188,7 +188,7 @@
           </tr>
           <tr>
               <th>Musica</th>
-              <td><div onclick="playMusic({{{ id }}})">Play</div></td>
+              <td><div onclick="playMusic({{{ id }}}, '{{{ image }}}')">Play</div></td>
           </tr>
           {{# has_expansions }}
           <tr>
@@ -207,7 +207,7 @@
   </script>
 
   <script type="text/javascript">
-    function playMusic(id){
+    function playMusic(id, image){
       
       $('#DemoModal').modal('show');
 
@@ -219,13 +219,19 @@
       },
       "songs": [
         {
-          "name": "Titolo canzone",
-          "artist": "Ancient Astronauts",
-          "album": "We Are to Answer",
+          "name": "Sottofondo musicale",
+          "artist": "",
+          "album": "",
           "url": "music/Spy.mp3",
-          "cover_art_url": "/img/open-source/amplitudejs/album-art/we-are-to-answer.jpg"
+          "cover_art_url": image
         }
       ]
+    });
+
+    $( document ).ready(function() {
+        $("#DemoModal").on("hidden.bs.modal", function () {
+            Amplitude.pause();
+        });
     });
 
     window.onkeydown = function(e) {
