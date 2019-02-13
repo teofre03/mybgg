@@ -13,11 +13,89 @@
       href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
   <link rel="stylesheet"
        href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+       <!-- Foundation Framework CSS -->
+    <link rel="stylesheet" href="css/foundation.min.css">
+
+    <!-- Include font -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,400i" rel="stylesheet">
+
+
+    <!-- Include Amplitude JS -->
+    <script type="text/javascript" src="amplitude.js"></script>
+
+    <!-- Foundation jQuery and Functions -->
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/foundation.min.js"></script>
+
+    <!--
+      Include UX functions JS
+
+      NOTE: These are for handling things outside of the scope of AmplitudeJS
+    -->
+    <script type="text/javascript" src="js/functions.js"></script>
+
+    <!-- Include Style Sheet -->
+    <link rel="stylesheet" type="text/css" href="css/app.css"/>
   <script src="http://code.jquery.com/jquery.min.js"></script>
   <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.7.4"></script>
   <script src="amplitude.js"></script>
   <script src="https://use.typekit.net/hkw8axg.js"></script>
+  <style type="text/css">
+    /* Player Styles */
+    #player{
+        width: 334px;
+        margin: auto;
+        box-shadow: 1px 5px 5px #888888;
+    }
+    #player-top{
+        padding: 10px;
+        height: 55px;
+        background-color: white;
+    }
+    #slash{
+        color: #3b3b3b;
+        font-size: 12px;
+        font-weight: bold;
+        text-shadow: 1px 1px #ffffff;
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        margin-top: 20px;
+    }
+    #track-info-container{
+        float: left;
+        font-size: 10px;
+        width: 170px;
+        overflow: hidden;
+        margin-left: 10px;
+    }
+    /* Amplitude Element Styles */
+    #amplitude-play-pause{
+        width: 58px;
+        height: 59px;
+        cursor: pointer;
+        float: left;
+    }
+    .amplitude-paused{
+        background-image: url('../images/yellow-play.png');
+        background-repeat: no-repeat;
+    }
+    .amplitude-playing{
+        background-image: url('../images/yellow-pause.png');
+        background-repeat: no-repeat;
+    }
+    #amplitude-now-playing-artist{
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        font-size: 14px;
+    }
+    #amplitude-now-playing-title{
+        color: #3b3b3b;
+        font-size: 12px;
+        font-weight: bold;
+        text-shadow: 1px 1px #ffffff;
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
   <article class="wrapper">
