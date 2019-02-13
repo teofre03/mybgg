@@ -209,24 +209,49 @@
   <script type="text/javascript">
     function playMusic(id, image){
       
-      $('#DemoModal').modal('show');
+      var music = getMusicById(id);
+      if(music == null){
+        // ALERT NESSUNA CANZONE
+      } else {
+        $('#DemoModal').modal('show');
+        Amplitude.init({
+          "bindings": {
+            37: 'prev',
+            39: 'next',
+            32: 'play_pause'
+          },
+          "songs": [
+            {
+              "name": "Sottofondo musicale",
+              "artist": "",
+              "album": "",
+              "url": music,
+              "cover_art_url": image
+            }
+          ]
+        });
+      }
+    }
 
-      Amplitude.init({
-      "bindings": {
-        37: 'prev',
-        39: 'next',
-        32: 'play_pause'
-      },
-      "songs": [
-        {
-          "name": "Sottofondo musicale",
-          "artist": "",
-          "album": "",
-          "url": "music/Spy.mp3",
-          "cover_art_url": image
-        }
-      ]
-    });
+    function getMusicById(id){
+      case 30933:
+        // BANG!
+        return "music/Western.mp3";
+      case 230914:
+        // CARCASSONNE
+        return "Fantasy Tavern.mp3";
+      case 130592:
+        // CLUEDO
+        return "Cluedo.mp3";
+      case 23263:
+        // CLUEDO DVD
+        return "Cluedo.mp3";
+      case 230498:
+        // DECKSCAPE FATE OF LONDON
+        return "Escape Room Timer Music.mp3";
+      default:
+        return null;
+    }
 
     $( document ).ready(function() {
         $("#DemoModal").on("hidden.bs.modal", function () {
@@ -248,7 +273,6 @@
       Amplitude.setSongPlayedPercentage( ( parseFloat( x ) / parseFloat( this.offsetWidth) ) * 100 );
     });
 
-    }
   </script>
 
   <script src="app.js"></script>
