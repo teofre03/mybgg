@@ -131,30 +131,29 @@
           </div>
           <div class="modal-body">
             <div class="row">
-              <div class="large-10 medium-10 small-12 large-centered medium-centered columns">
-                <div id="single-song-player">
-                  <img amplitude-song-info="cover_art_url" amplitude-main-song-info="true"> 
-                  <div class="bottom-container">
-                    <progress amplitude-main-song-played-progress="true" id="song-played-progress" class="amplitude-song-played-progress" value="0"></progress> 
-                    <div class="time-container">
-                      <span class="current-time">
-                        <span amplitude-main-current-minutes="true" class="amplitude-current-minutes">00</span>:<span amplitude-main-current-seconds="true" class="amplitude-current-seconds">00</span>
-                      </span> 
-                      <span class="duration">
-                        <span amplitude-main-duration-minutes="true" class="amplitude-duration-minutes"></span>:<span amplitude-main-duration-seconds="true" class="amplitude-duration-seconds"></span>
-                      </span>
-                    </div> 
-                    <div class="control-container">
-                      <div amplitude-main-play-pause="true" id="play-pause" class="amplitude-play-pause amplitude-paused"></div> 
-                      <div class="meta-container">
-                        <span amplitude-song-info="name" amplitude-main-song-info="true" class="song-name"></span> 
-                        <span amplitude-song-info="artist" amplitude-main-song-info="true"></span>
-                      </div>
+              <div id="single-song-player">
+                <img data-amplitude-song-info="cover_art_url"/>
+                <div class="bottom-container">
+                  <progress class="amplitude-song-played-progress" id="song-played-progress"></progress>
+
+                  <div class="time-container">
+                    <span class="current-time">
+                      <span class="amplitude-current-minutes"></span>:<span class="amplitude-current-seconds"></span>
+                    </span>
+                    <span class="duration">
+                      <span class="amplitude-duration-minutes"></span>:<span class="amplitude-duration-seconds"></span>
+                    </span>
+                  </div>
+
+                  <div class="control-container">
+                    <div class="amplitude-play-pause" id="play-pause"></div>
+                    <div class="meta-container">
+                      <span data-amplitude-song-info="name" class="song-name"></span>
+                      <span data-amplitude-song-info="artist"></span>
                     </div>
                   </div>
-                </div> 
+                </div>
               </div>
-            </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Chiudi</button>
