@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>I miei giochi</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.7">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.7.4/dist/instantsearch.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.7.4/dist/instantsearch-theme-algolia.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,700">
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+  <!-- Foundation Framework CSS 
+  <link rel="stylesheet" href="css/foundation.min.css">-->
+
+  <!-- Include font -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,400i" rel="stylesheet">
+
+  <!-- Include Style Sheet -->
+  <script src="https://code.jquery.com/jquery.min.js"></script>
+  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+  <script src="https://use.typekit.net/hkw8axg.js"></script>
+  <style type="text/css">
+    
+  </style>
+</head>
+<body>
+  
+  <div class="row">
+    <div class="col-sm-12">
+      <a href="Western.mp3">Western</a>
+    </div>
+    <div class="col-sm-12">
+      <a href="Fantasy Tavern.mp3">Fantasy Tavern</a>
+    </div>
+    <div class="col-sm-12">
+      <a href="Cluedo.mp3">Cluedo</a>
+    </div>
+    <div class="col-sm-12">
+      <a href="Escape Room Timer Music.mp3">Escape Room Timer</a>
+    </div>
+    <div class="col-sm-12">
+      <a href="Suspance.mp3">Suspance</a>
+    </div>
+    <div class="col-sm-12">
+      <a href="Laboratory.mp3">Laboratory</a>
+    </div>
+    <div class="col-sm-12">
+      <a href="Horror.mp3">Horror</a>
+    </div>
+    <div class="col-sm-12">
+      <a href="Pirate Caribbean.mp3">Pirate Caribbean</a>
+    </div>
+    <div class="col-sm-12">
+      <a href="Pirate Music Epic Short.mp3">Pirate Music Epic</a>
+    </div>
+    <div class="col-sm-12">
+      <a href="Spy.mp3">Spy</a>
+    </div>
+    <div class="col-sm-12">
+      <a href="Sherlock Holmes.mp3">Sherlock Holmes</a>
+    </div>
+    <div class="col-sm-12">
+      <a href="Harry Potter.mp3">Harry Potter</a>
+    </div>
+    <div class="col-sm-12">
+      <a href="Super Mario.mp3">Super Mario</a>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    function playMusic(id, image){
+      
+      var music = getMusicById(id);
+      if(music == null){
+        // ALERT NESSUNA CANZONE
+      } else {
+        $('#DemoModal').modal('show');
+        Amplitude.init({
+          "bindings": {
+            37: 'prev',
+            39: 'next',
+            32: 'play_pause'
+          },
+          "songs": [
+            {
+              "name": "Sottofondo musicale",
+              "artist": "",
+              "album": "",
+              "url": music,
+              "cover_art_url": image
+            }
+          ]
+        });
+        Amplitude.setRepeat(true);
+        Amplitude.setRepeatSong(true);
+        Amplitude.bindNewElements();
+      }
+    }
+
+    function getMusicById(id){
+      switch(id) {
+        case 30933:
+          // BANG!
+          return "music/Western.mp3";
+        case 230914:
+          // CARCASSONNE
+          return "music/Fantasy Tavern.mp3";
+        case 130592:
+          // CLUEDO
+          return "music/Cluedo.mp3";
+        case 23263:
+          // CLUEDO DVD
+          return "music/Cluedo.mp3";
+        case 230498:
+          // DECKSCAPE FATE OF LONDON
+          return "music/Escape Room Timer Music.mp3";
+        case 258451:
+          // DECKSCAPE ELDORADO
+          return "music/Suspance.mp3";
+        case 102548:
+          // DUNGEON FIGHTER
+          return "music/Fantasy Tavern.mp3";  
+        case 203417:
+          // EXIT SECRET LAB
+          return "music/Laboratory.mp3"; 
+        case 215841:
+          // EXIT FORGOTTEN ISLAND
+          return "music/Suspance.mp3"; 
+        case 215840:
+          // EXIT FORBIDDEN CASTLE
+          return "music/Horror.mp3";     
+        case 230408:
+          // MONOPOLY GAMER
+          return "music/Super Mario.mp3"; 
+        case 176606:
+          // RATTLE BATTLE GRAB THE LOOT
+          var num = Math.floor((Math.random() * 100) + 1);
+          if (num > 50){
+            return "music/Pirate Caribbean.mp3"; 
+          } else {
+            return "music/Pirate Music Epic Short.mp3"; 
+          }
+        case 127024:
+          // ROOM 25
+          return "music/Spy.mp3"; 
+        case 188834:
+          // SECRET VOLDEMORT
+          return "music/Harry Potter.mp3";    
+        case 2511:
+          // SHERLOCK HOLMES CONSULTING DETECTIVE
+          return "music/Sherlock Holmes.mp3";     
+        default:
+          return null;
+      }
+    }
+
+  </script>
+
+</body>
+</html>
