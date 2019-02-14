@@ -220,28 +220,10 @@
       
       var music = getMusicById(id);
       if(music == null){
-        // ALERT NESSUNA CANZONE
+        var win = window.open("music/index.html", '_blank');
       } else {
-        $('#DemoModal').modal('show');
-        Amplitude.init({
-          "bindings": {
-            37: 'prev',
-            39: 'next',
-            32: 'play_pause'
-          },
-          "songs": [
-            {
-              "name": "Sottofondo musicale",
-              "artist": "",
-              "album": "",
-              "url": music,
-              "cover_art_url": image
-            }
-          ]
-        });
-        Amplitude.setRepeat(true);
-        Amplitude.setRepeatSong(true);
-        Amplitude.bindNewElements();
+        var win = window.open(music, '_blank');
+        win.focus();
       }
     }
 
