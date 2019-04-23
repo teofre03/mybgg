@@ -11,4 +11,4 @@ declxml==1.1.1
 idna==2.7                 # via requests
 requests-cache==0.4.13
 requests==2.20.0          # via algoliasearch, requests-cache
-urllib3==1.24.1           # via requests
+urllib3==1.24.2           # via requests
