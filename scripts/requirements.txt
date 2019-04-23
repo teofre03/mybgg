@@ -4,7 +4,7 @@
 #
 #    pip-compile --output-file requirements.txt requirements.in
 #
-algoliasearch==1.17.0
+algoliasearch>=1.0,<2.0
 certifi==2018.10.15       # via requests
 chardet==3.0.4            # via requests
 declxml==1.1.1
